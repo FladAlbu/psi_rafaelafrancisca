@@ -140,19 +140,36 @@ body {
 }
 
 #experience h1 {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold; /* ou remova se não for necessário */
-    font-size: 40px;
+    
     color: #333;
     margin-bottom: 1px;
 }
+#titulo1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 50px;
+}
 
+#titulo2 {
+    font-family: "Playfair Display", serif;
+    font-weight: bold; /* ou remova se não for necessário */
+    font-size: 40px;
+}
 
 #experience h2 {
-    font-family: 'Baskerville', serif;
     font-weight: normal;
     font-size: 20px; /* Tamanho menor para mobile */
     color: #3a3a3a;
+}
+#subtitulo1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+#subtitulo1 {
+    font-family: "Playfair Display", serif;
+    font-weight: normal;
 }
 
 #experience p.lead {
@@ -233,7 +250,7 @@ s
 }
 
 #contact h2 {
-    font-size: 36px; /* Tamanho do título */
+    font-size: 32px; /* Tamanho do título */
     color: #333; /* Cor do título */
 }
 
@@ -244,8 +261,8 @@ s
     border: none; /* Remove a borda */
     padding: 12px 24px; /* Espaçamento interno */
     border-radius: 10px; /* Bordas arredondadas */
-    font-size: 20px; /* Tamanho da fonte */
-    margin-top: -20px; /* Aproxima do texto acima */
+    font-size: 18px; /* Tamanho da fonte */
+    margin-top: -10px; /* Aproxima do texto acima */
     transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
 }
 
