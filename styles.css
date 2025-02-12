@@ -267,7 +267,7 @@ s
     min-height: 100vw;
     width: 100vh; /* largura*/
     min-width: 100vh; /* Garante que a imagem não ultrapasse a largura da tela */
-    object-fit:fill; /* Mantém a imagem visível sem cortes */
+    object-fit:cover; /* Mantém a imagem visível sem cortes */
     transform: rotate(90deg); /* Gira a imagem para ficar em pé */
   }
 
