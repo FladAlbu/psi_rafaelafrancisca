@@ -6,8 +6,6 @@
 body {
     font-family: 'Nunito Sans', sans-serif;
     font-size: var(--base-font);
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -17,6 +15,9 @@ h1 {
 
 h2 {
     font-size: calc(var(--base-font) * var(--scale));
+}
+p{
+    font-size: var(--base-font);
 }
 
 .navbar {
@@ -81,23 +82,38 @@ h2 {
     margin: 0 auto; /* Centraliza horizontalmente */
 }
 
-.credential {
-    font-family: 'Bon Vivant Family Serif';
-    color: #F4F3EE;
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
+.arrow-down {
+    position: absolute;
+    bottom: 20px; /* Distância do fundo */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem; /* Tamanho do ícone */
+    color: #788D7C; /* Cor do ícone */
+    animation: bounce 2s infinite; /* Animação opcional */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-10px);
+    }
 }
 
 /* Estilos base (mobile) */
 #experience {
     background-color: #f8f9fa;
-    padding: 30px 0; /* Padding menor para mobile */
+    padding: 1000px 0; /* Padding menor para mobile */
     
 }
 
 #experience h1 {
     font-family: "Playfair Display", serif;
-    font-weight: bold; /* ou remova se não for necessário */
-    font-size: 40px;
+    font-weight: normal; /* ou remova se não for necessário */
     color: #333;
     margin-bottom: 1px;
 }
@@ -105,15 +121,149 @@ h2 {
 #experience h2 {
     font-family: "Playfair Display", serif;
     font-weight: normal;
-    font-size: 20px; /* Tamanho menor para mobile */
     color: #3a3a3a;
 }
 
 #experience p.lead {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
+    justify-content: left; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
-    font-size: 16px; /* Tamanho menor para mobile */
+    font-size: var(--base-font);
+    color: #444;
+    line-height: 1.6; /* Espaçamento mais compacto */
+    max-width: 100%; /* Ocupa toda a largura no mobile */
+}
+
+/* Estilização do modal de texto sobre o vídeo */
+.feeling-section {
+    padding: 1rem;
+    background: #F2D5B7;
+    min-height: 61.8vh; /* Aplicando a Golden Ratio*/
+}
+
+#sentimentos.video-modal {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    /* Inicialmente oculto */
+    display: none;
+    /* Para a animação de subida */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: translateY(100%);
+    opacity: 0;
+    font-size: 14px;
+  }
+  
+/* Classe que exibe o modal com a animação de subida */
+#sentimentos.video-modal.show {
+display: block;
+transform: translateY(0);
+opacity: 1;
+}
+
+#confianca.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.trust-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.trust-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.trust-trigger {
+    cursor: pointer;
+    padding: 1rem;
+    background: white;
+}
+
+.trust-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.trust-expansion {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-box {
+    padding: 1.5rem;
+    background: rgba(120, 141, 124, 0.95);
+    color: #f4f3ee;
+}
+
+.testimonial-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+blockquote {
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+blockquote::before {
+    content: "“";
+    position: absolute;
+    left: 0;
+    top: -0.5rem;
+    font-size: 2rem;
+    color: #dba486;
+}
+
+/* Estilos base (mobile) */
+#message {
+    background-color: #f8f9fa;
+    padding: 30px 0; /* Padding menor para mobile */
+    
+}
+
+#message h1 {
+    font-family: "Playfair Display", serif;
+    font-weight: normal; /* ou remova se não for necessário */
+    color: #333;
+    padding-top: 10rem
+    margin-bottom: 1px;
+}
+
+#message h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: normal;
+    color: #3a3a3a;
+}
+
+#message p.lead {
+    display: flex;
+    justify-content: left; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    font-size: var(--base-font);
     color: #444;
     line-height: 1.6; /* Espaçamento mais compacto */
     max-width: 100%; /* Ocupa toda a largura no mobile */
@@ -137,7 +287,7 @@ h2 {
 .concepts .card-body i {
 	font-size: 50px;
 }
-s
+
 /* Estilo da seção de valores */
 #values {
     background-color: #f8f9fa; /* Cor de fundo da seção */
@@ -148,19 +298,6 @@ s
 }
 .values .card {
 	box-shadow: 15px 15px 40px ;
-}
-/* Contêiner da imagem flutuante */
-.image-container {
-    position: relative; /* Define o contexto de posicionamento para a imagem */
-    width: 100%; /* Ocupa a largura total */
-    min-height: 150px; /* Altura mínima para garantir espaço para a imagem */
-}
-.floating-image {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 300px; /* Reduz o tamanho da imagem flutuante */
-    z-index: 1; /* Garante que a imagem fique acima do conteúdo do rodapé */
 }
 
 /* Estilo da seção de contato */
@@ -197,6 +334,21 @@ s
     font-size: 4rem; /* Tamanho do ícone */
     margin-right: 100px; /* Espaçamento à direita do ícone */
 }
+
+/* Contêiner da imagem flutuante */
+.image-container {
+    position: relative; /* Define o contexto de posicionamento para a imagem */
+    width: 100%; /* Ocupa a largura total */
+    min-height: 150px; /* Altura mínima para garantir espaço para a imagem */
+}
+.floating-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px; /* Reduz o tamanho da imagem flutuante */
+    z-index: 1; /* Garante que a imagem fique acima do conteúdo do rodapé */
+}
+
 /* Início do footer */
 .footer {
     background-color: #788D7C;
@@ -267,7 +419,7 @@ s
     min-height: 100vw;
     width: 100vh; /* largura*/
     min-width: 100vh; /* Garante que a imagem não ultrapasse a largura da tela */
-    object-fit:cover; /* Mantém a imagem visível sem cortes */
+    object-fit:fill; /* Mantém a imagem visível sem cortes */
     transform: rotate(90deg); /* Gira a imagem para ficar em pé */
   }
 
@@ -310,6 +462,26 @@ s
         line-height: 1.8;
         max-width: 800px; /* Largura fixa em telas grandes */
     }
+    /* Sessão Confiança*/
+    .trust-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .trust-img {
+        height: 300px;
+    }
+
+    .testimonial-box {
+        padding: 2rem;
+    }
+
     .golden-overlay {
         /* Exemplo: diminuir o overlay ou reposicioná-lo se necessário */
         /* Se preferir não exibir o overlay no desktop, use: */
@@ -324,4 +496,13 @@ s
     object-fit: contain; /* Mantém a imagem visível sem cortes */
     transform: rotate(0); /* Gira a imagem para ficar em pé */
     }
+}
+
+/* Estado expandido */
+.trust-card.active .trust-expansion {
+    max-height: 500px;
+}
+
+.trust-card.active {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }

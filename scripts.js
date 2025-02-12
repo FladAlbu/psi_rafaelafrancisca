@@ -37,4 +37,41 @@ function handleHeaderScroll() {
 document.addEventListener('DOMContentLoaded', () => {
     handleNavbarScroll();
     handleHeaderScroll();
+
+    const cards = document.querySelectorAll('.trust-card');
+    
+    const closeAllCards = () => {
+        cards.forEach(card => {
+            card.classList.remove('active');
+        });
+    };
+
+    const handleCardClick = (clickedCard) => {
+        const isActive = clickedCard.classList.contains('active');
+        closeAllCards();
+        
+        if(!isActive) {
+            clickedCard.classList.add('active');
+            const yOffset = -50; // Ajuste de posição
+            const y = clickedCard.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            
+            window.scrollTo({
+                top: y,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    cards.forEach(card => {
+        card.querySelector('.trust-trigger').addEventListener('click', () => {
+            handleCardClick(card);
+        });
+    });
+
+    // Fecha cards ao clicar fora
+    document.addEventListener('click', (e) => {
+        if(!e.target.closest('.trust-card')) {
+            closeAllCards();
+        }
+    });
 });
