@@ -1,39 +1,23 @@
-@font-face {
-    font-family: 'Bon Vivant Family Serif';
-    src: url('files/fonts/Bon-Vivant-Font/BonVivantSerif.woff2') format('woff2'),
-        url('files/fonts/Bon-Vivant-Font/BonVivantSerif.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+:root {
+    --base-font: 16px; /* Valor para mobile */
+    --scale: 1.618;
 }
-
-@font-face {
-    font-family: 'Bon Vivant Family Serif';
-    src: url('files/fonts/Bon-Vivant-Font/BonVivantSerifBold.woff2') format('woff2'),
-        url('files/fonts/Bon-Vivant-Font/BonVivantSerifBold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Bon Vivant Family Script';
-    src: url('files/fonts/Bon-Vivant-Font/BonVivant-Regular.woff2') format('woff2'),
-        url('files/fonts/Bon-Vivant-Font/BonVivantSerif.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-
 
 body {
     font-family: 'Nunito Sans', sans-serif;
+    font-size: var(--base-font);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: calc(var(--base-font) * var(--scale) * var(--scale)); /* Tamanho para mobile */
+}
+
+h2 {
+    font-size: calc(var(--base-font) * var(--scale));
+}
 
 .navbar {
     background-color: transparent !important; /* Fundo transparente */
@@ -41,23 +25,24 @@ body {
     width: 100%;
     z-index: 3;
     transition: top 0.5s; /* Adiciona transição suave */
-    height: 100px; /* Aumenta a altura do cabeçalho */
+    height: 140px; /* Aumenta a altura do cabeçalho */
 }
 .navbar-brand img {
-    height: 80px; /* Aumenta o tamanho da logo no cabeçalho */
+    height: 12vh; /* Aumenta o tamanho da logo no cabeçalho */
 }
 .navbar .navbar-brand, .navbar-nav .nav-link {
     color: #F4F3EE !important; /* Ajuste a cor do texto conforme necessário */
     font-size: 1.25rem; /* Aumenta o tamanho da fonte dos links do cabeçalho */
 }
 .navbar-hidden {
-    top: -100px; /* Ajuste o valor conforme a altura da navbar */
+    top: -600px; /* Ajuste o valor conforme a altura da navbar */
 }
+
 /* Banner Principal */
 .hero-banner {
     position: relative;
     width: 100%;
-    min-height: 90vh;
+    min-height: 61.8vh; /* Aplicando a Golden Ratio*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,10 +67,10 @@ body {
 
 .banner-content {
     position: relative;
-    top:20px;
+    top:10px;
     z-index: 2;
     text-align: center;
-    max-width: 90%;
+    max-width: 100%;
     width: 100%; /* Garante que o conteúdo ocupe toda a largura disponível */
 }
 
@@ -102,102 +87,36 @@ body {
     font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
-/* Media Queries para ajustes específicos */
-@media (max-width: 768px) {
-    .hero-banner {
-        min-height: 80vh;
-    }
-
-    .banner-content {
-        max-width: 100%; /* Ocupa toda a largura no mobile */
-        padding: 0 20px; /* Evita que o conteúdo encoste nas bordas */
-    }
-
-    .banner-logo {
-        width: min(600px, 100%); /* Aumenta o tamanho no mobile */
-        margin: 0 auto; /* Força centralização */
-        transform: translateX(0); /* Reseta possíveis transformações */
-    }
-}
-
-@media (max-width: 480px) {
-    .video-container video {
-        object-position: 100% center;
-    }
-
-    .banner-logo {
-        width: 100%; /* Torna a imagem ainda maior em telas pequenas */
-    }
-
-    .credential {
-        margin-top: 0.1rem;
-    }
-}
 /* Estilos base (mobile) */
 #experience {
     background-color: #f8f9fa;
     padding: 30px 0; /* Padding menor para mobile */
+    
 }
 
 #experience h1 {
-    
-    color: #333;
-    margin-bottom: 1px;
-}
-#titulo1 {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 700;
-    font-style: italic;
-    font-size: 50px;
-}
-
-#titulo2 {
     font-family: "Playfair Display", serif;
     font-weight: bold; /* ou remova se não for necessário */
     font-size: 40px;
+    color: #333;
+    margin-bottom: 1px;
 }
 
 #experience h2 {
+    font-family: "Playfair Display", serif;
     font-weight: normal;
     font-size: 20px; /* Tamanho menor para mobile */
     color: #3a3a3a;
 }
-#subtitulo1 {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 600;
-    font-style: normal;
-}
-#subtitulo1 {
-    font-family: "Playfair Display", serif;
-    font-weight: normal;
-}
 
 #experience p.lead {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
     font-size: 16px; /* Tamanho menor para mobile */
     color: #444;
     line-height: 1.6; /* Espaçamento mais compacto */
     max-width: 100%; /* Ocupa toda a largura no mobile */
-}
-
-/* Media Queries para telas maiores (tablet/desktop) */
-@media (min-width: 768px) { /* Breakpoint "md" do Bootstrap */
-    #experience {
-        padding: 60px 0; /* Padding maior para desktop */
-    }
-
-    #experience h1 {
-        font-size: 48px; /* Tamanho original */
-    }
-
-    #experience h2 {
-        font-size: 24px;
-    }
-
-    #experience p.lead {
-        font-size: 18px;
-        line-height: 1.8;
-        max-width: 800px; /* Largura fixa em telas grandes */
-    }
 }
 
 /* Estilo dos cartões Conceito */
@@ -328,4 +247,44 @@ s
 .footer-copyright {
     font-size: 12px; /* Tamanho da fonte menor para o copyright */
     margin-bottom: 10px;
+}
+
+/* Media Queries para ajustes DESKTOP */
+@media (min-width: 768px) {
+    :root {
+        --base-font: 16px; /* Ajuste para telas maiores */
+    }
+
+    .hero-banner {
+        min-height: 80vh;
+    }
+
+    .banner-content {
+        max-width: 100%; /* Ocupa toda a largura no mobile */
+        padding: 0 20px; /* Evita que o conteúdo encoste nas bordas */
+    }
+
+    .banner-logo {
+        width: min(600px, 100%); /* Aumenta o tamanho no mobile */
+        margin: 0 auto; /* Força centralização */
+        transform: translateX(0); /* Reseta possíveis transformações */
+    }
+
+    #experience {
+        padding: 60px 0; /* Padding maior para desktop */
+    }
+
+    #experience h1 {
+        font-size: 48px; /* Tamanho original */
+    }
+
+    #experience h2 {
+        font-size: 24px;
+    }
+
+    #experience p.lead {
+        font-size: 18px;
+        line-height: 1.8;
+        max-width: 800px; /* Largura fixa em telas grandes */
+    }
 }
