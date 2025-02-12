@@ -249,6 +249,29 @@ s
     margin-bottom: 10px;
 }
 
+.golden-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  .golden-image {
+    height: 100vw; /* altura*/
+    min-height: 100vw;
+    width: 100vh; /* largura*/
+    min-width: 100vh; /* Garante que a imagem não ultrapasse a largura da tela */
+    object-fit:fill; /* Mantém a imagem visível sem cortes */
+    transform: rotate(90deg); /* Gira a imagem para ficar em pé */
+  }
+
+
 /* Media Queries para ajustes DESKTOP */
 @media (min-width: 768px) {
     :root {
@@ -286,5 +309,19 @@ s
         font-size: 18px;
         line-height: 1.8;
         max-width: 800px; /* Largura fixa em telas grandes */
+    }
+    .golden-overlay {
+        /* Exemplo: diminuir o overlay ou reposicioná-lo se necessário */
+        /* Se preferir não exibir o overlay no desktop, use: */
+        /* display: none; */
+        width: 100%;
+        /* Ou ajuste seu tamanho: */
+        padding: 5%;  /* Cria uma margem interna para que a imagem não ocupe 100% */
+      }
+    .golden-image {
+    height: 100%; /* Faz a imagem cobrir toda a altura da tela */
+    max-width: 100vh; /* Garante que a imagem não ultrapasse a largura da tela */
+    object-fit: contain; /* Mantém a imagem visível sem cortes */
+    transform: rotate(0); /* Gira a imagem para ficar em pé */
     }
 }
